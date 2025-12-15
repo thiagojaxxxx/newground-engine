@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const { success } = require('../lib/response');
 const { calculate } = require('../core/crs/calculate');
 
 router.post('/calculate', (req, res) => {
   const result = calculate(req.body);
-  res.json(result);
+  success(res, result);
 });
 
 module.exports = router;
